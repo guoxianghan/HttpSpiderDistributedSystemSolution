@@ -80,14 +80,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aspose.Cells">
-      <HintPath>C:\Aspose.Cells.dll</HintPath>
-    </Reference>
-    <Reference Include="Excel">
-      <HintPath>..\dll\Excel.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>D:\dll\Aspose.Cells.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack">
-      <HintPath>C:\dll\HtmlAgilityPack.DLL</HintPath>
+      <HintPath>D:\dll\HtmlAgilityPack.DLL</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <SpecificVersion>False</SpecificVersion>
@@ -95,17 +91,23 @@
       <HintPath>C:\dll\Microsoft.Office.Interop.Excel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>D:\dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI">
-      <HintPath>C:\NPOI 2.2.0.0\dotnet4\NPOI.dll</HintPath>
+      <HintPath>D:\dll\NPOI.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OOXML">
-      <HintPath>C:\NPOI 2.2.0.0\dotnet4\NPOI.OOXML.dll</HintPath>
+      <HintPath>D:\dll\NPOI.OOXML.dll</HintPath>
     </Reference>
     <Reference Include="NPOI.OpenXml4Net">
-      <HintPath>C:\NPOI 2.2.0.0\dotnet4\NPOI.OpenXml4Net.dll</HintPath>
+      <HintPath>D:\dll\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>D:\dll\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="org.in2bits.MyXls">
-      <HintPath>C:\dll\org.in2bits.MyXls.dll</HintPath>
+      <HintPath>D:\dll\org.in2bits.MyXls.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -121,7 +123,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Validate">
-      <HintPath>C:\dll\Validate.dll</HintPath>
+      <HintPath>D:\dll\Validate.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
