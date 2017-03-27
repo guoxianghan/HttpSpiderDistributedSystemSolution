@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -12,6 +14,7 @@ namespace HTTPBrowser
     /// <summary>
     /// 发起一个Http请求后得到的响应
     /// </summary>
+    [DataContractAttribute]
     public class ResponsePack_WebBrowser : IResponsePack
     {
         public ResponsePack_WebBrowser(string downloadMethod):base(downloadMethod){}
@@ -27,12 +30,12 @@ namespace HTTPBrowser
                 }
                 return _PageSource;
             }
-            set { _PageSource = value; }
+            //set { _PageSource = value; }
         }
         private Encoding _Encoding = null;
 
         private static Encoding LastEncoding = null;
-        public byte[] Data { get; set; }
+        public byte[] Data { get; set; } 
         /// <summary>
         /// 页面编码
         /// </summary>

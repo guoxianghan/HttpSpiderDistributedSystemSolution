@@ -23,7 +23,7 @@ namespace HTTPBrowser
 
         private Stopwatch Timer;
         public TimeSpan DownloadTime { get { return this.Timer.Elapsed; } }
-        public abstract string PageSource { get; set; }
+        public abstract string PageSource { get; }
         public Stream ResultStream { get; set; }
         public CookieCollection Cookie { get; set; }
         public Uri RequestUri { get; set; }

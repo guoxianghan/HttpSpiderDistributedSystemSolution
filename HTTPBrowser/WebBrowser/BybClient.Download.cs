@@ -97,7 +97,7 @@ namespace HTTPBrowser
                         }
                     }
                     responseData = this.DownloadData(url);
-                    
+
                 }
                 this.LastResponsePack.Data = responseData;
             }

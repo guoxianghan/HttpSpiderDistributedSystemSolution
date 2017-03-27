@@ -7,103 +7,121 @@ using HttpEntry;
 using HttpSpider;
 using HTTPBrowser;
 using TaskModel;
+using System.ServiceModel;
+using System.Net;
+
 namespace RequestService
 {
+    [ServiceBehavior]
     public class RequestService : IRequestContract
     {
-        public HttpResult SingleSpiderRequestTask(int taskid)
-        {
-            throw new NotImplementedException();
-        }
-        public WebBrowser SingleBrowserRequestTask(int taskid)
-        {
-            throw new NotImplementedException();
-        }
-        public List<HttpResult> SpiderRequestTaskID(int taskid)
+        static List<IMessageCallback> subscribers = new List<IMessageCallback>();
+        public List<ResponsePack_WebBrowser> BrowserRequestEntrys(HarEntry[] harEntry, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public List<WebBrowser> BrowserRequestTaskID(int taskid)
+        public string BrowserRequestHtml(int taskid, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public HttpResult SingleSpiderRequest(HarEntry harEntry)
+        public string BrowserRequestHtml(HarRequest[] harRequests, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public WebBrowser SingleBrowserRequest(HarEntry harEntry)
+        public List<ResponsePack_WebBrowser> BrowserRequestTaskID(int taskid, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public List<HttpResult> SpiderRequestEntrys(HarEntry[] HarEntrys)
+        public ResponsePack_WebBrowser BrowserRequest(HarRequest harrequest, params Cookie[] c)
+        {
+            return Request.GetRequest(harrequest, c);
+        }
+
+        public string BrowserRequestHtml(HarRequest harrequest, params Cookie[] c)
+        {
+            return Request.GetRequestHtml(harrequest, c); 
+        }
+
+        public ResponsePack_WebBrowser BrowserRequest(int taskid, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public List<WebBrowser> BrowserRequestEntrys(HarEntry[] HarEntrys)
+        public ResponsePack_WebBrowser SingleBrowserRequestTaskDetail(int taskid, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-
-        public string SingleSpiderRequestTaskIDHtml(int taskid)
-        {
-            throw new NotImplementedException();
-        }
-        public string SingleBrowserRequestTaskIDHtml(int taskid)
-        {
-            throw new NotImplementedException();
-        }
-        public string SpiderRequestHtml(int taskid)
+        public string SingleBrowserRequestTaskDetailHtml(int taskid, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public string BrowserRequestHtml(int taskid)
+        public string SingleBrowserRequestTaskIDHtml(int taskid, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public string SingleSpiderRequestEntryHtml(HarEntry harEntry)
+        public HttpResult SingleSpiderRequest(HarRequest harrequest, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public string SingleBrowserRequestEntryHtml(HarEntry harEntry)
+        public string SingleSpiderRequestEntryHtml(HarRequest harrequest, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public string SpiderRequestHtml(HarEntry[] HarEntrys)
+        public HttpResult SingleSpiderRequestTask(int taskid, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public string BrowserRequestHtml(HarEntry[] HarEntrys)
+        public HttpResult SingleSpiderRequestTaskDetail(int taskid, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public HttpResult SingleSpiderRequestTaskDetail(int taskid)
+        public string SingleSpiderRequestTaskDetailHtml(int taskid, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public WebBrowser SingleBrowserRequestTaskDetail(int taskid)
+        public string SingleSpiderRequestTaskIDHtml(int taskid, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public string SingleSpiderRequestTaskDetailHtml(int taskid)
+        public List<HttpResult> SpiderRequestEntrys(HarRequest[] harRequests, params Cookie[] c)
         {
             throw new NotImplementedException();
         }
 
-        public string SingleBrowserRequestTaskDetailHtml(int taskid)
+        public string SpiderRequestHtml(int taskid, params Cookie[] c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string SpiderRequestHtml(HarRequest[] harRequests, params Cookie[] c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<HttpResult> SpiderRequestTaskID(int taskid, params Cookie[] c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Subscribe()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Unsubscribe()
         {
             throw new NotImplementedException();
         }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Linq;
 using HttpEntry;
+using System.IO;
+
 namespace HTTPBrowser
 {
     public abstract class IWebBrowser : IDisposable
@@ -12,7 +14,7 @@ namespace HTTPBrowser
             this.Config = new RequestConfig();
             Init(this.Config);
         }
-
+        public Stream RequestStream { get; set; }
         /// <summary>
         /// 当修改Config之后，需要调用此方法以应用新的配置。
         /// </summary>

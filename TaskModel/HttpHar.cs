@@ -150,7 +150,7 @@ namespace HttpEntry
         public float send { get; set; }
         public float wait { get; set; }
         public float receive { get; set; }
-        public int ssl { get; set; }
+        public float ssl { get; set; }
     }
 
 }
