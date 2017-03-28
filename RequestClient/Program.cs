@@ -9,6 +9,7 @@ using System.IO;
 using Newtonsoft.Json;
 using HttpEntry;
 using System.Net;
+using HttpSpider;
 
 namespace RequestClient
 {
@@ -31,16 +32,14 @@ namespace RequestClient
                 IRequestContract ito = channelFactory.CreateChannel();
                 while (true)
                 {
-                    ResponsePack_WebBrowser res = ito.BrowserRequest(h.log.entries[0].request);
-                    string html = ito.BrowserRequestHtml(h.log.entries[0].request);
-                    Console.WriteLine(res);
+                    // ResponsePack_WebBrowser res = ito.BrowserRequest(h.log.entries[0].request);
+                    var coo = new List<Cookie>();
+                    string html = ito.Get(h.log.entries[0].request.url, coo);
+                    
+                   
+                    //Console.WriteLine(html);
 
                 }
-
-
-
-
-
                 // action?.Invoke(channelFactory.CreateChannel());
             }
         }

@@ -17,7 +17,7 @@ namespace HttpSpider
         /// 下载成功时事件  
         /// </summary>
         public event DownloadCompleteCallBack OnDownloadDataCompleted;
-        public HttpSpider HttpSpider = new HttpSpider();
+        public HttpHelper HttpSpider = new HttpHelper();
         /// <summary>
         /// 请求URL必须填写
         /// </summary>
@@ -312,24 +312,25 @@ namespace HttpSpider
         Func<HarRequest, CookieContainer, HttpResult> RequestCallback;
         public virtual HttpResult GetHttpResult(HarRequest request, CookieContainer cookie = null)
         {
-            
-            var r = new HttpServer();
+
             string err;
-            r.Cookies = cookie;
-            r.Host = request.header["Host"];
-            r.UserAgent = request.header["User-Agent"];
-            r.Accept = request.header["Accept"];
-            r.ContentType = request.headers.FirstOrDefault(x => x.name == "Content-Type")?.value;
+            var r = HarToHttpServer(request);
+            HttpResult result = HttpSpider.GetHtmlResult(r, out err);
+
+            return result;
+        }
+
+        public static HttpServer HarToHttpServer(HarRequest request)
+        {
+            var r = new HttpServer();
+            //r.Host = request.header["Host"];
+            r.UserAgent = request.headers.FirstOrDefault(x => x.name.ToLower() == "User-Agent".ToLower())?.value;
+             
+            r.Accept = request.headers.FirstOrDefault(x => x.name.ToLower() == "Accept".ToLower())?.value; 
+            r.ContentType = request.headers.FirstOrDefault(x => x.name.ToLower() == "Content-Type".ToLower())?.value;
             r.Allowautoredirect = request.Allowautoredirect;
-            r.Referer = request.headers.FirstOrDefault(x => x.name == "Referer")?.value;
-            if (cookie == null)
-            {
-                r.Cookies = new CookieContainer();
-                foreach (var item in request.cookies)
-                {
-                    r.Cookies.Add(new Cookie(item.name, item.value) { Domain = r.Host });
-                }
-            }
+            r.Referer = request.headers.FirstOrDefault(x => x.name.ToLower() == "Referer".ToLower())?.value;
+
             r.PostEncoding = request.PostEncoding;
             r.Method = request.method;
             r.Url = request.url;
@@ -340,7 +341,7 @@ namespace HttpSpider
                 {
                     try
                     {
-                        if ("User-Agent,Host,Accept,Connection,Content-Type,Referer,Content-Length".Contains(item.name))
+                        if ("User-Agent,Host,Accept,Connection,Content-Type,Referer,Content-Length".ToLower().Contains(item.name.ToLower()))
                         {
                             continue;
                         }
@@ -352,11 +353,9 @@ namespace HttpSpider
                     }
                 }
             }
-
-            HttpResult result = HttpSpider.GetHtmlResult(r, out err);
-            
-            return result;
+            return r;
         }
+
         /// <summary>
         /// 初始化所有属性
         /// </summary>

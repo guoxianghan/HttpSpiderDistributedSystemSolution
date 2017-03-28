@@ -68,6 +68,10 @@
       <Project>{2C182EC2-0E8E-4079-8AAE-7D4336CA1787}</Project>
       <Name>HTTPBrowser</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HttpSpider\HttpSpider.csproj">
+      <Project>{0C34A621-0C58-4F8E-9313-02231B235EDC}</Project>
+      <Name>HttpSpider</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RequestContract\RequestContract.csproj">
       <Project>{525180cc-e1a1-46f0-8472-34c3722cbf30}</Project>
       <Name>RequestContract</Name>

@@ -1,72 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.ServiceModel;
-using HttpEntry;
-using TaskModel;
-using HttpSpider;
-using HTTPBrowser;
 using System.Net;
+using System.ServiceModel;
+using System.Text;
 
 namespace RequestContract
 {
-    //[ServiceContract(CallbackContract = typeof(IMessageCallback))]
     [ServiceContract]
     public interface IRequestContract
     {
         [OperationContract]
-        HttpResult SingleSpiderRequestTask(int taskid, params Cookie[] c);
-        [OperationContract(Name = "BrowserRequestTaskID")]
-        ResponsePack_WebBrowser BrowserRequest(int taskid, params Cookie[] c);
+        string Get(string url, List<Cookie> cookies);
 
-        [OperationContract]
-        HttpResult SingleSpiderRequestTaskDetail(int taskid, params Cookie[] c);
-        [OperationContract]
-        ResponsePack_WebBrowser SingleBrowserRequestTaskDetail(int taskid, params Cookie[] c);
+        [OperationContract(Name = "POSTSTRING")]
+        string Post(string url, List<Cookie> cookies,Dictionary<string, string> data = null, Encoding requestEncoding = null);
 
-        [OperationContract]
-        string SingleSpiderRequestTaskDetailHtml(int taskid, params Cookie[] c);
-        [OperationContract]
-        string SingleBrowserRequestTaskDetailHtml(int taskid, params Cookie[] c);
+        
 
-        [OperationContract]
-        List<HttpResult> SpiderRequestTaskID(int taskid, params Cookie[] c);
+        [OperationContract(Name = "GetStream")]
+        Stream GetStream(string url , string method, List<Cookie> cookies,Dictionary<string, string> data = null, Encoding requestEncoding = null);
 
-        [OperationContract(Name = "BrowserRequestTaskIDList")]
-        List<ResponsePack_WebBrowser> BrowserRequestTaskID(int taskid, params Cookie[] c);
-        [OperationContract]
-        HttpResult SingleSpiderRequest(HarRequest harrequest, params Cookie[] c);
+        [OperationContract(Name = "HttpServerRequestGet")]
+        string HttpServerRequestGet(string url, List<Cookie> cookies, Dictionary<string, string> header = null);
+        [OperationContract(Name = "HttpServerRequestPost")]
+        string HttpServerRequestPost(string url, List<Cookie> cookies, string post, Dictionary<string, string> header = null, Encoding requestEncoding = null);
+        [OperationContract(Name = "HttpServerStream")]
+        Stream HttpServerStream(string url, string method, string param, List<Cookie> cookies, Dictionary<string, string> headers = null, Encoding requestEncoding = null);
 
-        [OperationContract(Name = "BrowserRequestEntity")]
-        ResponsePack_WebBrowser BrowserRequest(HarRequest harrequest, params Cookie[] c);
-        [OperationContract]
-        List<HttpResult> SpiderRequestEntrys(HarRequest[] harRequests, params Cookie[] c);
-        [OperationContract]
-        List<ResponsePack_WebBrowser> BrowserRequestEntrys(HarEntry[] harEntry, params Cookie[] c);
-
-        [OperationContract]
-        string SingleSpiderRequestTaskIDHtml(int taskid, params Cookie[] c);
-        [OperationContract]
-        string SingleBrowserRequestTaskIDHtml(int taskid, params Cookie[] c);
-
-        [OperationContract(Name = "SpiderRequestTaskIDHtml")]
-        string SpiderRequestHtml(int taskid, params Cookie[] c);
-        [OperationContract(Name = "BrowserRequestTaskIDHtml")]
-        string BrowserRequestHtml(int taskid, params Cookie[] c);
-        [OperationContract]
-        string SingleSpiderRequestEntryHtml(HarRequest harrequest, params Cookie[] c);
-        [OperationContract]
-        string BrowserRequestHtml(HarRequest harrequest, params Cookie[] c);
-
-        [OperationContract(Name = "SpiderRequestEntrysHtml")]
-        string SpiderRequestHtml(HarRequest[] harRequests, params Cookie[] c);
-        [OperationContract(Name = "BrowserRequestEntrysListHtml")]
-        string BrowserRequestHtml(HarRequest[] harRequests, params Cookie[] c);
-        [OperationContract]
-        void Subscribe();
-
-        [OperationContract]
-        void Unsubscribe();
     }
 }

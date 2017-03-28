@@ -63,6 +63,27 @@ namespace HTTPBrowser
             return Request(new Uri(request.url), request.header);
         }
         /// <summary>
+        /// 待完善
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="headers"></param>
+        /// <param name="cookie"></param>
+        /// <returns></returns>
+        public IResponsePack Request(string url, string method, string referer, string post, Dictionary<string, string> headers, System.Net.Cookie[] cookie)
+        {
+            this.Config = new RequestConfig();
+            this.Config.ContentType = headers.FirstOrDefault(x => x.Key == "ContentType").Value;
+            this.Config.Cookies = cookie;
+            this.Config.Headers = headers;
+            this.Config.Method = method;
+            if (headers.Keys.Contains("Referer"))
+                this.Config.Referer = new Uri(headers.FirstOrDefault(x => x.Key == "Referer").Value);
+            else this.Config.Referer = new Uri(referer);
+            if (headers.Keys.Contains("User-Agent"))
+                this.Config.UserAgent = headers.FirstOrDefault(x => x.Key == "UserAgent").Value;
+            return Request(new Uri(url), headers);
+        }
+        /// <summary>
         /// 下载json形式的内容（由于有些浏览器默认会将json内容包装成html，所以可能需要额外处理，以提取出其中的json部分。）
         /// </summary>
         /// <param name="uri"></param>

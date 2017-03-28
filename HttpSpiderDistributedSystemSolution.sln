@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestClient", "RequestCli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{5E59795C-3F2F-44C9-9F89-C655D92FB727}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{F6F1CFCF-D33B-42AA-8B03-1E14C246EEFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerProxy", "ServerProxy\ServerProxy.csproj", "{220FFC4C-B966-491F-AEF4-881CCA743E06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -143,6 +143,18 @@ Global
 		{5E59795C-3F2F-44C9-9F89-C655D92FB727}.Release|Itanium.Build.0 = Release|Any CPU
 		{5E59795C-3F2F-44C9-9F89-C655D92FB727}.Release|x64.ActiveCfg = Release|Any CPU
 		{5E59795C-3F2F-44C9-9F89-C655D92FB727}.Release|x64.Build.0 = Release|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Debug|Itanium.ActiveCfg = Debug|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Debug|Itanium.Build.0 = Debug|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Debug|x64.Build.0 = Debug|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Release|Itanium.ActiveCfg = Release|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Release|Itanium.Build.0 = Release|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Release|x64.ActiveCfg = Release|Any CPU
+		{220FFC4C-B966-491F-AEF4-881CCA743E06}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

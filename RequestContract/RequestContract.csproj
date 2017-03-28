@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IMessageCallback.cs" />
     <Compile Include="IRequestContract.cs" />
+    <Compile Include="IRequestContract_old.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

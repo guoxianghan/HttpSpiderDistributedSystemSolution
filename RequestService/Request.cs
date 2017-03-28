@@ -19,10 +19,11 @@ namespace RequestService
         }
         public static string GetRequestHtml(HarRequest harrequest, params Cookie[] c)
         {
-            web = new WebBrowser();
+            web = new WebBrowser(); 
             var r = web.Request(harrequest, c);
             return r.PageSource;
         }
+        
 
     }
 }

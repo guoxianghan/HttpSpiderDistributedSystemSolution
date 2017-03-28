@@ -26,7 +26,7 @@ namespace HttpSpider
     /// <summary>
     /// Http连接操作帮助类
     /// </summary>
-    public class HttpSpider
+    public class HttpHelper
     {
         #region 预定义变量
         private Encoding encoding = Encoding.Default;
@@ -46,6 +46,7 @@ namespace HttpSpider
         {
             err = "";
             //返回参数 
+            item.Host = item.Url?.Replace("https://", "").Replace("http://", "").Split('/')[0];
             HttpResult result = new HttpResult();
             try
             {
@@ -58,7 +59,7 @@ namespace HttpSpider
                 err = ex.Message;
                 if (ex.InnerException != null)
                     err = ex.InnerException.Message;
-                return new HttpResult() { HeaderCollection = null, Html = ex.Message , StatusDescription = "配置参数时出错：" + ex.Message};
+                return new HttpResult() { HeaderCollection = null, Html = ex.Message, StatusDescription = "配置参数时出错：" + ex.Message };
             }
             try
             {
